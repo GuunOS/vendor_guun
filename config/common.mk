@@ -90,9 +90,21 @@ ifeq ($(WITH_TWRP),true)
 include vendor/cm/config/twrp.mk
 endif
 
-# Bootanimation
-PRODUCT_PACKAGES += \
-    bootanimation.zip
+TARGET_BOOTANIMATION_480P := $(shell \
+   if [ $(TARGET_SCREEN_WIDTH) -le 720 ]; then \
+     echo 'true'; \
+   else \
+     echo ''; \
+   fi )
+ 
+ # Bootanimation
+ ifeq ($(TARGET_BOOTANIMATION_480P),true)
+ PRODUCT_COPY_FILES += \
+     vendor/cm/bootanimation/bootanimation-480p.zip:system/media/bootanimation.zip
+ else
+ PRODUCT_COPY_FILES += \
+     vendor/cm/bootanimation/bootanimation.zip:system/media/bootanimation.zip
+ endif
 
 # Required CM packages
 PRODUCT_PACKAGES += \
