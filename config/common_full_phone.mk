@@ -1,11 +1,11 @@
-# Inherit common CM stuff
-$(call inherit-product, vendor/cm/config/common_full.mk)
+# Inherit common Psycho stuff
+$(call inherit-product, vendor/psycho/config/common_full.mk)
 
-# Required CM packages
+# Required Psycho packages
 PRODUCT_PACKAGES += \
     LatinIME
 
 # Include CM LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/psycho/overlay/dictionaries
 
-$(call inherit-product, vendor/cm/config/telephony.mk)
+$(call inherit-product, vendor/psycho/config/telephony.mk)

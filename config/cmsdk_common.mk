@@ -1,12 +1,12 @@
 # Permissions for cmsdk services
 PRODUCT_COPY_FILES += \
-    vendor/cm/config/permissions/org.cyanogenmod.audio.xml:system/etc/permissions/org.cyanogenmod.audio.xml \
-    vendor/cm/config/permissions/org.cyanogenmod.livedisplay.xml:system/etc/permissions/org.cyanogenmod.livedisplay.xml \
-    vendor/cm/config/permissions/org.cyanogenmod.performance.xml:system/etc/permissions/org.cyanogenmod.performance.xml \
-    vendor/cm/config/permissions/org.cyanogenmod.profiles.xml:system/etc/permissions/org.cyanogenmod.profiles.xml \
-    vendor/cm/config/permissions/org.cyanogenmod.statusbar.xml:system/etc/permissions/org.cyanogenmod.statusbar.xml \
-    vendor/cm/config/permissions/org.cyanogenmod.telephony.xml:system/etc/permissions/org.cyanogenmod.telephony.xml \
-    vendor/cm/config/permissions/org.cyanogenmod.weather.xml:system/etc/permissions/org.cyanogenmod.weather.xml
+    vendor/psycho/config/permissions/org.cyanogenmod.audio.xml:system/etc/permissions/org.cyanogenmod.audio.xml \
+    vendor/psycho/config/permissions/org.cyanogenmod.livedisplay.xml:system/etc/permissions/org.cyanogenmod.livedisplay.xml \
+    vendor/psycho/config/permissions/org.cyanogenmod.performance.xml:system/etc/permissions/org.cyanogenmod.performance.xml \
+    vendor/psycho/config/permissions/org.cyanogenmod.profiles.xml:system/etc/permissions/org.cyanogenmod.profiles.xml \
+    vendor/psycho/config/permissions/org.cyanogenmod.statusbar.xml:system/etc/permissions/org.cyanogenmod.statusbar.xml \
+    vendor/psycho/config/permissions/org.cyanogenmod.telephony.xml:system/etc/permissions/org.cyanogenmod.telephony.xml \
+    vendor/psycho/config/permissions/org.cyanogenmod.weather.xml:system/etc/permissions/org.cyanogenmod.weather.xml
 
 # CM Platform Library
 PRODUCT_PACKAGES += \
@@ -42,9 +42,8 @@ endif
 
 # CyanogenMod Platform SDK Version
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.build.version.plat.sdk=$(CM_PLATFORM_SDK_VERSION)
+  ro.psycho.build.version.plat.sdk=$(PSYCHO_PLATFORM_SDK_VERSION)
 
 # CyanogenMod Platform Internal
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.build.version.plat.rev=$(CM_PLATFORM_REV)
-
+  ro.psycho.build.version.plat.rev=$(PSYCHO_PLATFORM_REV)
