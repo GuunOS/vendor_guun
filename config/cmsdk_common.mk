@@ -42,8 +42,8 @@ endif
 
 # CyanogenMod Platform SDK Version
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.psycho.build.version.plat.sdk=$(PSYCHO_PLATFORM_SDK_VERSION)
+  ro.cm.build.version.plat.sdk=$(CM_PLATFORM_SDK_VERSION)
 
 # CyanogenMod Platform Internal
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.psycho.build.version.plat.rev=$(PSYCHO_PLATFORM_REV)
+  ro.cm.build.version.plat.rev=$(CM_PLATFORM_REV)
