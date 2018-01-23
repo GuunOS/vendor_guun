@@ -1,7 +1,7 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := Dialer
+LOCAL_MODULE := GoogleDialer
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := Dialer.apk
 LOCAL_CERTIFICATE := PRESIGNED
