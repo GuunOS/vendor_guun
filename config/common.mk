@@ -137,12 +137,21 @@ PRODUCT_PACKAGES += \
     Jelly \
     LockClock \
     ThemeInterfacer \
-		Contacts \
-		Dialer \
+		GoogleContacts \
+    GoogleDialer \
 		Home \
 		Recorder \
     WallpaperPicker \
     WeatherProvider
+
+# Dialer Jar
+PRODUCT_PACKAGES += \
+		com.google.android.dialer.support \
+
+# Dialer Permissions
+PRODUCT_COPY_FILES += \
+		vendor/psycho/prebuilt/etc/permissions/com.google.android.dialer.support.xml:system/etc/permissions/com.google.android.dialer.support.xml \
+		vendor/psycho/prebuilt/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
 # Required keyboard packages
 PRODUCT_PACKAGES += \
