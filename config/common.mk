@@ -137,9 +137,9 @@ PRODUCT_PACKAGES += \
     Jelly \
     LockClock \
     ThemeInterfacer \
-		GoogleContacts \
+    GoogleContacts \
     GoogleDialer \
-		Home \
+    Home \
 		Recorder \
     WallpaperPicker \
     WeatherProvider
