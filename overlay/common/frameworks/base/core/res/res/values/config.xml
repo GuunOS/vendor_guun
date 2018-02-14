@@ -91,4 +91,11 @@
     <!-- Flag indicating which package name can access the persistent data partition -->
     <string name="config_persistentDataPackageName" translatable="false">com.google.android.gms</string>
 
+    <!-- Whether to show a warning notification when the device reaches a certain temperature. -->
+    <integer name="config_showTemperatureWarning">1</integer>
+
+    <!-- Temp at which to show a warning notification if config_showTemperatureWarning is true.
+         If < 0, uses the value from HardwarePropertiesManager#getDeviceTemperatures. -->
+    <integer name="config_warningTemperature">55</integer>
+
 </resources>

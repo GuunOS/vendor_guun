@@ -107,6 +107,9 @@ TARGET_BOOTANIMATION_480P := $(shell \
  endif
 
 # Required CM packages
+
+PRODUCT_COPY_FILES += \
+    vendor/psycho/prebuilt/common/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf
 PRODUCT_PACKAGES += \
     BluetoothExt \
     CMAudioService \
