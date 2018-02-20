@@ -110,6 +110,25 @@ TARGET_BOOTANIMATION_480P := $(shell \
 
 PRODUCT_COPY_FILES += \
     vendor/psycho/prebuilt/common/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf
+		vendor/psycho/prebuilt/common/fonts/DroidSansFallback.ttf:system/fonts/DroidSansFallback.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-Black.ttf:system/fonts/Roboto-Black.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-BlackItalic.ttf:system/fonts/Roboto-BlackItalic.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-Bold.ttf:system/fonts/Roboto-Bold.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-BoldItalic.ttf:system/fonts/Roboto-BoldItalic.ttf
+		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-Bold.ttf:system/fonts/RobotoCondensed-Bold.ttf
+		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-BoldItalic.ttf:system/fonts/RobotoCondensed-BoldItalic.ttf
+		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-Italic.ttf:system/fonts/RobotoCondensed-Italic.ttf
+		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-Light.ttf:system/fonts/RobotoCondensed-Light.ttf
+		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-LightItalic.ttf:system/fonts/RobotoCondensed-LightItalic.ttf
+		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-Regular.ttf:system/fonts/RobotoCondensed-Regular.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-Italic.ttf:system/fonts/Roboto-Italic.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-Light.ttf:system/fonts/Roboto-Light.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-LightItalic.ttf:system/fonts/Roboto-LightItalic.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-Medium.ttf:system/fonts/Roboto-Medium.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-MediumItalic.ttf:system/fonts/Roboto-MediumItalic.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-Regular.ttf:system/fonts/Roboto-Regular.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-Thin.ttf:system/fonts/Roboto-Thin.ttf
+		vendor/psycho/prebuilt/common/fonts/Roboto-ThinItalic.ttf:system/fonts/Roboto-ThinItalic.ttf
 PRODUCT_PACKAGES += \
     BluetoothExt \
     CMAudioService \
