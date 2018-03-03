@@ -179,6 +179,10 @@ PRODUCT_COPY_FILES += \
 		vendor/psycho/prebuilt/etc/permissions/com.google.android.dialer.support.xml:system/etc/permissions/com.google.android.dialer.support.xml \
 		vendor/psycho/prebuilt/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
+		# Make Google Dialer ADDITIONAL_DEFAULT_PROPERTIES
+		PRODUCT_COPY_FILES += \
+				vendor/psycho/prebuilt/etc/default-apps/dialer.xml:system/etc/preferred-apps/dialer.xml
+
 # Required keyboard packages
 PRODUCT_PACKAGES += \
     LatinIME
