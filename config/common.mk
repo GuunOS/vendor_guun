@@ -160,9 +160,9 @@ PRODUCT_PACKAGES += \
     LockClock \
     ThemeInterfacer \
     GoogleContacts \
-    GoogleDialer \
+    Dialer \
     Home \
-		Recorder \
+    Recorder \
     WallpaperPicker \
     WeatherProvider
 
