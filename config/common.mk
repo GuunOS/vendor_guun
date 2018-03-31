@@ -153,7 +153,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AudioFX \
     CMSettingsProvider \
-    LineageSetupWizard \
     Eleven \
     ExactCalculator \
     Jelly \
@@ -178,7 +177,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 		vendor/psycho/prebuilt/etc/permissions/com.google.android.dialer.support.xml:system/etc/permissions/com.google.android.dialer.support.xml \
 		vendor/psycho/prebuilt/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
-		
+
 # Required keyboard packages
 PRODUCT_PACKAGES += \
     LatinIME
