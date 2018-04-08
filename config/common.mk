@@ -165,10 +165,6 @@ PRODUCT_PACKAGES += \
     WallpaperPicker \
     WeatherProvider
 
-# Psycho Tweaks
- PRODUCT_PACKAGES += \
- 		PsychoTweaks
-
 # Dialer Jar
 PRODUCT_PACKAGES += \
 		com.google.android.dialer.support \
