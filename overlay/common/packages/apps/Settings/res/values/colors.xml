@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="switchbar_background_color">?android:attr/colorAccent</color>
+  <color name="switch_accent_color">#e0e0e0</color>
+</resources>
