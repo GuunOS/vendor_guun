@@ -285,12 +285,30 @@ endif
 DEVICE_PACKAGE_OVERLAYS += vendor/psycho/overlay/common
 
 PRODUCT_VERSION_MAJOR = 0
-PRODUCT_VERSION_MINOR = 1
+PRODUCT_VERSION_MINOR = 2
 ifndef PSYCHO_BUILDTYPE
     PSYCHO_BUILDTYPE := UNOFFICIAL
 endif
 
-ifeq ($(PSYCHO_BUILDTYPE), OFFICIAL)
+ifeq ($(PSYCHO_OFFICIAL), true)
+   CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
+   LIST = $(shell curl -s https://raw.githubusercontent.com/PsychoOS/android_vendor_cm/Psycho-N/psycho.official)
+   FOUND_DEVICE =  $(filter $(CURRENT_DEVICE), $(LIST))
+    ifeq ($(FOUND_DEVICE),$(CURRENT_DEVICE))
+      IS_OFFICIAL=true
+      PSYCHO_BUILDTYPE := OFFICIAL
+
+      PRODUCT_PACKAGES += \
+      PsychoOTA
+    endif
+    ifneq ($(IS_OFFICIAL), true)
+       PSYCHO_BUILDTYPE := UNOFFICIAL
+       $(error Device is not official "$(FOUND)")
+    endif
+    PRODUCT_PROPERTY_OVERRIDES += \
+        persist.ota.romname=$(TARGET_PRODUCT) \
+        persist.ota.version=$(shell date +%Y%m%d) \
+        persist.ota.manifest=https://raw.githubusercontent.com/PsychoOS/OTA/Psycho-N/$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3).xml \
 endif
 
 PSYCHO_VERSION := Psycho-N-v$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(PSYCHO_BUILD)-$(PSYCHO_BUILDTYPE)
