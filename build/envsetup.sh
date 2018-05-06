@@ -65,9 +65,9 @@ function breakfast()
             fi
 
             if ! check_product lineage_$target && check_product psycho_$target; then
-                echo "** Warning: '$target' is using Psycho-based makefiles. This will be deprecated in the next major release."
                 lunch psycho_$target-$variant
             else
+                echo "** Warning: '$target' is using Lineage-based makefiles. This will be deprecated in the next major release."
                 lunch lineage_$target-$variant
             fi
         fi
