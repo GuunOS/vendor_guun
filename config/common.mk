@@ -300,15 +300,18 @@ ifeq ($(PSYCHO_OFFICIAL), true)
 
       PRODUCT_PACKAGES += \
       PsychoOTA
+
     endif
+
     ifneq ($(IS_OFFICIAL), true)
        PSYCHO_BUILDTYPE := UNOFFICIAL
        $(error Device is not official "$(FOUND)")
     endif
+
     PRODUCT_PROPERTY_OVERRIDES += \
         persist.ota.romname=$(TARGET_PRODUCT) \
         persist.ota.version=$(shell date +%Y%m%d) \
-        persist.ota.manifest=https://raw.githubusercontent.com/PsychoOS/OTA/Psycho-N/$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3).xml \
+        persist.ota.manifest=https://raw.githubusercontent.com/PsychoOS/OTA/Psycho-N/$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3).xml
 endif
 
 PSYCHO_VERSION := Psycho-N-v$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(PSYCHO_BUILD)-$(PSYCHO_BUILDTYPE)
