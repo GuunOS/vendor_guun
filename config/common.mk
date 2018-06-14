@@ -161,6 +161,7 @@ PRODUCT_PACKAGES += \
     GoogleContacts \
     Dialer \
     Home \
+		Suggestions \
     Recorder \
     WallpaperPicker \
     WeatherProvider
