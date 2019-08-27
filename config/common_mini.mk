@@ -1,4 +1,4 @@
-# Inherit common XenonHD stuff
-$(call inherit-product, vendor/xenonhd/config/common.mk)
+# Inherit common GuunOS stuff
+$(call inherit-product, vendor/guun/config/common.mk)
 
 PRODUCT_SIZE := mini

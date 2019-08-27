@@ -1,9 +1,9 @@
 #!/bin/bash
 #
 # Name the zip file and get md5
-# XenonHD
+# GuunOS
 
-. $ANDROID_BUILD_TOP/vendor/xenonhd/tools/colors
+. $ANDROID_BUILD_TOP/vendor/guun/tools/colors
 
 OUT_TARGET_HOST=`uname -a | grep Darwin`
 if [ -z "$OUT_TARGET_HOST" ]
@@ -14,12 +14,12 @@ else
 fi
 
 # Determine build properties
-MODVERSION=`grep ro.xenonhd.version $OUT/system/build.prop | cut -d'=' -f2`
-DEVICE=`grep ro.xenonhd.device $OUT/system/build.prop | cut -d'=' -f2`
-OTA_TYPE=`grep ro.xenonhd.type $OUT/system/build.prop | cut -d'=' -f2`
+MODVERSION=`grep ro.guun.version $OUT/system/build.prop | cut -d'=' -f2`
+DEVICE=`grep ro.guun.device $OUT/system/build.prop | cut -d'=' -f2`
+OTA_TYPE=`grep ro.guun.type $OUT/system/build.prop | cut -d'=' -f2`
 
-XENONHD_TARGET_PACKAGE=$MODVERSION-$DEVICE.zip
-OUTFILE=$OUT/$XENONHD_TARGET_PACKAGE
+GUUN_TARGET_PACKAGE=$MODVERSION-$DEVICE.zip
+OUTFILE=$OUT/$GUUN_TARGET_PACKAGE
 
 # Create OTA XML file
 if [ -f $ANDROID_BUILD_TOP/ota_conf ]; then
@@ -32,11 +32,11 @@ cat >$OUT/ota_nougat_$DEVICE.xml <<EOF
             <RomUrl
                 id="rom"
                 title="ROM"
-                description="Download the latest build">https://mirrors.c0urier.net/android/teamhorizon/N/$OTA_TYPE/$DEVICE/$XENONHD_TARGET_PACKAGE</RomUrl>
+                description="Download the latest build">https://mirrors.c0urier.net/android/teamhorizon/N/$OTA_TYPE/$DEVICE/$GUUN_TARGET_PACKAGE</RomUrl>
             <MD5Url
                 id="md5"
                 title="MD5"
-                description="Download MD5 of the latest build">https://mirrors.c0urier.net/android/teamhorizon/N/$OTA_TYPE/$DEVICE/$XENONHD_TARGET_PACKAGE.md5sum</MD5Url>
+                description="Download MD5 of the latest build">https://mirrors.c0urier.net/android/teamhorizon/N/$OTA_TYPE/$DEVICE/$GUUN_TARGET_PACKAGE.md5sum</MD5Url>
             <ChangelogUrl
                 id="changelog"
                 title="Changelog"
@@ -59,13 +59,13 @@ fi
 (
 img=`basename $OUTFILE`
 cd `dirname $OUTFILE`
-ln -f *-ota-*.zip $XENONHD_TARGET_PACKAGE
+ln -f *-ota-*.zip $GUUN_TARGET_PACKAGE
 rm *-ota-*.zip
-$MD5 $img >$XENONHD_TARGET_PACKAGE.md5sum
+$MD5 $img >$GUUN_TARGET_PACKAGE.md5sum
 ZIPSIZE=`ls -lah $OUTFILE | awk '{ print $5}' `
 echo -e ${cya}"===========-Package complete-==========="${txtrst}
-echo -e ${cya}"zip:"${cya}" $XENONHD_TARGET_PACKAGE"${txtrst}
-echo -e ${cya}"md5:"${cya}" $(cat $XENONHD_TARGET_PACKAGE.md5sum | awk '{ print $1 }')"${txtrst}
+echo -e ${cya}"zip:"${cya}" $GUUN_TARGET_PACKAGE"${txtrst}
+echo -e ${cya}"md5:"${cya}" $(cat $GUUN_TARGET_PACKAGE.md5sum | awk '{ print $1 }')"${txtrst}
 echo -e ${cya}"size:"${cya}" $ZIPSIZE"${txtrst}
 echo -e ${cya}"========================================"${txtrst}
 )

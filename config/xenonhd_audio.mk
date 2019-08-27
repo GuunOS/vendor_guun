@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #
-# XenonHD Audio Files
+# GuunOS Audio Files
 #
 
 ALARM_PATH := $(PREBUILT)/media/audio/alarms

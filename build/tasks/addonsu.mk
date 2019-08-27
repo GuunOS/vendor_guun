@@ -1,4 +1,4 @@
-ADDONSU_PREBUILTS_PATH := vendor/xenonhd/addonsu/
+ADDONSU_PREBUILTS_PATH := vendor/guun/addonsu/
 
 ADDONSU_INSTALL_OUT := $(PRODUCT_OUT)/addonsu-install/
 ADDONSU_INSTALL_TARGET := $(PRODUCT_OUT)/addonsu-$(TARGET_ARCH).zip

@@ -1,11 +1,11 @@
-# XenonHD product
-PRODUCT_BRAND ?= xenonhd
-PRODUCT_NAME ?= xenonhd
+# GuunOS product
+PRODUCT_BRAND ?= guun
+PRODUCT_NAME ?= guun
 
 # Definitions
-CONFIG := vendor/xenonhd/config
-OVERLAY := vendor/xenonhd/overlay
-PREBUILT := vendor/xenonhd/prebuilt/common
+CONFIG := vendor/guun/config
+OVERLAY := vendor/guun/overlay
+PREBUILT := vendor/guun/prebuilt/common
 
 DEVICE_PACKAGE_OVERLAYS += $(OVERLAY)/common
 
@@ -19,7 +19,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
-# XenonHD Overrides
+# GuunOS Overrides
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
     media.sf.extractor-plugin=libffmpeg_extractor.so \
@@ -54,7 +54,7 @@ PRODUCT_COPY_FILES += \
     $(PREBUILT)/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
-# XenonHD-specific files
+# GuunOS-specific files
 # Backup Services whitelist
 # Signature compatibility validation
 # Copy over added mimetype supported in libcore.net.MimeUtils
@@ -62,7 +62,7 @@ PRODUCT_COPY_FILES += \
     $(CONFIG)/permissions/backup.xml:system/etc/sysconfig/backup.xml \
     $(CONFIG)/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml \
     $(CONFIG)/permissions/power-whitelist.xml:system/etc/sysconfig/power-whitelist.xml \
-    $(PREBUILT)/etc/init.local.rc:root/init.xenonhd.rc \
+    $(PREBUILT)/etc/init.local.rc:root/init.guun.rc \
     $(PREBUILT)/lib/content-types.properties:system/lib/content-types.properties \
     $(PREBUILT)/media/bootanimation.zip:system/media/bootanimation.zip
 
@@ -71,10 +71,10 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# Include OTA config, XenonHD audio files, Theme engine
+# Include OTA config, GuunOS audio files, Theme engine
 include $(CONFIG)/ota.mk
 include $(CONFIG)/themes_common.mk
-include $(CONFIG)/xenonhd_audio.mk
+include $(CONFIG)/guun_audio.mk
 
 # CMSDK
 ifneq ($(TARGET_DISABLE_CMSDK), true)
@@ -83,10 +83,10 @@ endif
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/xenonhd/config/twrp.mk
+include vendor/guun/config/twrp.mk
 endif
 
-# XenonHD packages
+# GuunOS packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
     CMAudioService \
@@ -127,7 +127,7 @@ PRODUCT_PACKAGES += \
 endif
 endif
 
-# Extra tools in XenonHD
+# Extra tools in GuunOS
 PRODUCT_PACKAGES += \
     7z \
     bash \
