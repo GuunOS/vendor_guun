@@ -15,7 +15,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ifneq ($(OTA_TYPE),Unofficial)
 # GuunOS OTA app
 PRODUCT_PACKAGES += \
-    XenonOTA
+#    XenonOTA
 
 $(shell echo -e "# OTA_configuration\n \
 ota_url=https://mirrors.c0urier.net/android/teamhorizon/N/OTA/ota_nougat_$(DEVICE).xml\n \
