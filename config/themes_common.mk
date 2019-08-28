@@ -1,6 +1,6 @@
 # substratum & ThemeInterfacer
 PRODUCT_PACKAGES += \
-        substratum \
+        #substratum \
         ThemeInterfacer
 
 PRODUCT_PROPERTY_OVERRIDES += \
