@@ -63,9 +63,17 @@ ln -f *-ota-*.zip $GUUN_TARGET_PACKAGE
 rm *-ota-*.zip
 $MD5 $img >$GUUN_TARGET_PACKAGE.md5sum
 ZIPSIZE=`ls -lah $OUTFILE | awk '{ print $5}' `
-echo -e ${cya}"===========-Package complete-==========="${txtrst}
-echo -e ${cya}"zip:"${cya}" $GUUN_TARGET_PACKAGE"${txtrst}
+echo -e ${cya}"===============-GuunOS Build Done-=============="${txtrst}
+echo -e ${cya}"     _____                    ____   _____      "${txtrst}
+echo -e ${cya}"    / ____|                  / __ \ / ____|     "${txtrst}
+echo -e ${cya}"   | |  __ _   _ _   _ _ __ | |  | | (___       "${txtrst}
+echo -e ${cya}"   | | |_ | | | | | | | '_ \| |  | |\___ \      "${txtrst}
+echo -e ${cya}"   | |__| | |_| | |_| | | | | |__| |____) |     "${txtrst}
+echo -e ${cya}"    \_____|\__,_|\__,_|_| |_|\____/|_____/      "${txtrst}
+echo -e ${cya}"             Guun OS with Guun AI               "${txtrst}
+echo -e ${cya}"------------------------------------------------"${txtrst}
+echo -e ${cya}"Zip Name:"${cya}" $GUUN_TARGET_PACKAGE"${txtrst}
 echo -e ${cya}"md5:"${cya}" $(cat $GUUN_TARGET_PACKAGE.md5sum | awk '{ print $1 }')"${txtrst}
 echo -e ${cya}"size:"${cya}" $ZIPSIZE"${txtrst}
-echo -e ${cya}"========================================"${txtrst}
+echo -e ${cya}"===============-GuunOS Build Done-=============="${txtrst}
 )
