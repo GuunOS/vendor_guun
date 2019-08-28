@@ -94,7 +94,7 @@ PRODUCT_PACKAGES += \
     CMSettingsProvider \
     Development \
     ExactCalculator \
-    Jelly \
+    #Jelly \
     libemoji \
     libffmpeg_omx \
     libffmpeg_extractor \
@@ -103,8 +103,6 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     LockClock \
     media_codecs_ffmpeg.xml \
-    mnml \
-    NovaLauncher \
     OmniClockOSS \
     Phonograph \
     PhotoTable \
@@ -113,7 +111,10 @@ PRODUCT_PACKAGES += \
     Terminal \
     WallpaperPicker \
     WeatherManagerService \
-    WeatherProvider
+    WeatherProvider \
+    MiXplorer \
+    EvieLauncher \
+    ViaBrowser
 
 # These packages are excluded from user builds
 ifneq ($(TARGET_BUILD_VARIANT),user)
