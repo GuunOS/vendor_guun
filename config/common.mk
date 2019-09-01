@@ -153,13 +153,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AudioFX \
     CMSettingsProvider \
-    Eleven \
     ExactCalculator \
     Jelly \
     LockClock \
     ThemeInterfacer \
     GoogleContacts \
     Mixplorer \
+    Evie \
     Phonograph \
     Vanced \
     Dialer \
