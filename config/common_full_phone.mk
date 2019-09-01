@@ -1,11 +1,11 @@
-# Inherit common Psycho stuff
-$(call inherit-product, vendor/psycho/config/common_full.mk)
+# Inherit common Guun stuff
+$(call inherit-product, vendor/guun/config/common_full.mk)
 
-# Required Psycho packages
+# Required Guun packages
 PRODUCT_PACKAGES += \
     LatinIME
 
 # Include CM LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/psycho/overlay/dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/guun/overlay/dictionaries
 
-$(call inherit-product, vendor/psycho/config/telephony.mk)
+$(call inherit-product, vendor/guun/config/telephony.mk)

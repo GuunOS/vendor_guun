@@ -40,10 +40,10 @@ function breakfast()
 {
     target=$1
     local variant=$2
-    PSYCHO_DEVICES_ONLY="true"
+    GUUN_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
-    for f in `/bin/ls vendor/psycho/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/guun/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -64,8 +64,8 @@ function breakfast()
                 variant="userdebug"
             fi
 
-            if ! check_product lineage_$target && check_product psycho_$target; then
-                lunch psycho_$target-$variant
+            if ! check_product lineage_$target && check_product guun_$target; then
+                lunch guun_$target-$variant
             else
                 echo "** Warning: '$target' is using Lineage-based makefiles. This will be deprecated in the next major release."
                 lunch lineage_$target-$variant
@@ -94,7 +94,7 @@ function eat()
             done
             echo "Device Found.."
         fi
-        if (adb shell getprop ro.psycho.device | grep -q "$PSYCHO_BUILD"); then
+        if (adb shell getprop ro.guun.device | grep -q "$GUUN_BUILD"); then
             # if adbd isn't root we can't write to /cache/recovery/
             adb root
             sleep 1
@@ -110,7 +110,7 @@ EOF
             fi
             rm /tmp/command
         else
-            echo "The connected device does not appear to be $PSYCHO_BUILD, run away!"
+            echo "The connected device does not appear to be $GUUN_BUILD, run away!"
         fi
         return $?
     else
@@ -322,7 +322,7 @@ function installboot()
     sleep 1
     adb wait-for-online shell mount /system 2>&1 > /dev/null
     adb wait-for-online remount
-    if (adb shell getprop ro.cm.device | grep -q "$PSYCHO_BUILD");
+    if (adb shell getprop ro.cm.device | grep -q "$GUUN_BUILD");
     then
         adb push $OUT/boot.img /cache/
         if [ -e "$OUT/system/lib/modules/*" ];
@@ -337,7 +337,7 @@ function installboot()
         adb shell rm -rf /cache/boot.img
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $PSYCHO_BUILD, run away!"
+        echo "The connected device does not appear to be $GUUN_BUILD, run away!"
     fi
 }
 
@@ -371,14 +371,14 @@ function installrecovery()
     sleep 1
     adb wait-for-online shell mount /system 2>&1 >> /dev/null
     adb wait-for-online remount
-    if (adb shell getprop ro.cm.device | grep -q "$PSYCHO_BUILD");
+    if (adb shell getprop ro.cm.device | grep -q "$GUUN_BUILD");
     then
         adb push $OUT/recovery.img /cache/
         adb shell dd if=/cache/recovery.img of=$PARTITION
         adb shell rm -rf /cache/recovery.img
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $PSYCHO_BUILD, run away!"
+        echo "The connected device does not appear to be $GUUN_BUILD, run away!"
     fi
 }
 
@@ -799,7 +799,7 @@ function dopush()
         echo "Device Found."
     fi
 
-    if (adb shell getprop ro.cm.device | grep -q "$PSYCHO_BUILD") || [ "$FORCE_PUSH" = "true" ];
+    if (adb shell getprop ro.cm.device | grep -q "$GUUN_BUILD") || [ "$FORCE_PUSH" = "true" ];
     then
     # retrieve IP and PORT info if we're using a TCP connection
     TCPIPPORT=$(adb devices \

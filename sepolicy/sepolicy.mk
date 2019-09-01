@@ -4,4 +4,4 @@
 #
 
 BOARD_SEPOLICY_DIRS += \
-    vendor/psycho/sepolicy
+    vendor/guun/sepolicy

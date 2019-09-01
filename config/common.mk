@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= PsychoOS
+PRODUCT_BRAND ?= GuunOS
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -33,37 +33,37 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/psycho/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/psycho/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/psycho/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh \
-    vendor/psycho/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/guun/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/guun/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/guun/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh \
+    vendor/guun/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/psycho/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/guun/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
-    vendor/psycho/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
+    vendor/guun/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/psycho/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/psycho/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/guun/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/guun/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/psycho/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/guun/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
 # CM-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/psycho/prebuilt/common/etc/init.local.rc:root/init.cm.rc
+    vendor/guun/prebuilt/common/etc/init.local.rc:root/init.cm.rc
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
-    vendor/psycho/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
+    vendor/guun/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -73,21 +73,21 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# This is Psycho!
+# This is Guun!
 PRODUCT_COPY_FILES += \
-    vendor/psycho/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
+    vendor/guun/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
 
-# Include Psycho audio files
-include vendor/psycho/config/cm_audio.mk
+# Include Guun audio files
+include vendor/guun/config/cm_audio.mk
 
 ifneq ($(TARGET_DISABLE_CMSDK), true)
 # CMSDK
-include vendor/psycho/config/cmsdk_common.mk
+include vendor/guun/config/cmsdk_common.mk
 endif
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/psycho/config/twrp.mk
+include vendor/guun/config/twrp.mk
 endif
 
 TARGET_BOOTANIMATION_480P := $(shell \
@@ -100,35 +100,35 @@ TARGET_BOOTANIMATION_480P := $(shell \
  # Bootanimation
  ifeq ($(TARGET_BOOTANIMATION_480P),true)
  PRODUCT_COPY_FILES += \
-     vendor/psycho/bootanimation/bootanimation-480p.zip:system/media/bootanimation.zip
+     vendor/guun/bootanimation/bootanimation-480p.zip:system/media/bootanimation.zip
  else
  PRODUCT_COPY_FILES += \
-     vendor/psycho/bootanimation/bootanimation.zip:system/media/bootanimation.zip
+     vendor/guun/bootanimation/bootanimation.zip:system/media/bootanimation.zip
  endif
 
 # Required CM packages
 
 PRODUCT_COPY_FILES += \
-    vendor/psycho/prebuilt/common/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf \
-		vendor/psycho/prebuilt/common/fonts/DroidSansFallback.ttf:system/fonts/DroidSansFallback.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-Black.ttf:system/fonts/Roboto-Black.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-BlackItalic.ttf:system/fonts/Roboto-BlackItalic.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-Bold.ttf:system/fonts/Roboto-Bold.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-BoldItalic.ttf:system/fonts/Roboto-BoldItalic.ttf \
-		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-Bold.ttf:system/fonts/RobotoCondensed-Bold.ttf \
-		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-BoldItalic.ttf:system/fonts/RobotoCondensed-BoldItalic.ttf \
-		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-Italic.ttf:system/fonts/RobotoCondensed-Italic.ttf \
-		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-Light.ttf:system/fonts/RobotoCondensed-Light.ttf \
-		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-LightItalic.ttf:system/fonts/RobotoCondensed-LightItalic.ttf \
-		vendor/psycho/prebuilt/common/fonts/RobotoCondensed-Regular.ttf:system/fonts/RobotoCondensed-Regular.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-Italic.ttf:system/fonts/Roboto-Italic.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-Light.ttf:system/fonts/Roboto-Light.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-LightItalic.ttf:system/fonts/Roboto-LightItalic.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-Medium.ttf:system/fonts/Roboto-Medium.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-MediumItalic.ttf:system/fonts/Roboto-MediumItalic.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-Regular.ttf:system/fonts/Roboto-Regular.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-Thin.ttf:system/fonts/Roboto-Thin.ttf \
-		vendor/psycho/prebuilt/common/fonts/Roboto-ThinItalic.ttf:system/fonts/Roboto-ThinItalic.ttf
+    vendor/guun/prebuilt/common/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf \
+		vendor/guun/prebuilt/common/fonts/DroidSansFallback.ttf:system/fonts/DroidSansFallback.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-Black.ttf:system/fonts/Roboto-Black.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-BlackItalic.ttf:system/fonts/Roboto-BlackItalic.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-Bold.ttf:system/fonts/Roboto-Bold.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-BoldItalic.ttf:system/fonts/Roboto-BoldItalic.ttf \
+		vendor/guun/prebuilt/common/fonts/RobotoCondensed-Bold.ttf:system/fonts/RobotoCondensed-Bold.ttf \
+		vendor/guun/prebuilt/common/fonts/RobotoCondensed-BoldItalic.ttf:system/fonts/RobotoCondensed-BoldItalic.ttf \
+		vendor/guun/prebuilt/common/fonts/RobotoCondensed-Italic.ttf:system/fonts/RobotoCondensed-Italic.ttf \
+		vendor/guun/prebuilt/common/fonts/RobotoCondensed-Light.ttf:system/fonts/RobotoCondensed-Light.ttf \
+		vendor/guun/prebuilt/common/fonts/RobotoCondensed-LightItalic.ttf:system/fonts/RobotoCondensed-LightItalic.ttf \
+		vendor/guun/prebuilt/common/fonts/RobotoCondensed-Regular.ttf:system/fonts/RobotoCondensed-Regular.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-Italic.ttf:system/fonts/Roboto-Italic.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-Light.ttf:system/fonts/Roboto-Light.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-LightItalic.ttf:system/fonts/Roboto-LightItalic.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-Medium.ttf:system/fonts/Roboto-Medium.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-MediumItalic.ttf:system/fonts/Roboto-MediumItalic.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-Regular.ttf:system/fonts/Roboto-Regular.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-Thin.ttf:system/fonts/Roboto-Thin.ttf \
+		vendor/guun/prebuilt/common/fonts/Roboto-ThinItalic.ttf:system/fonts/Roboto-ThinItalic.ttf
 PRODUCT_PACKAGES += \
     BluetoothExt \
     CMAudioService \
@@ -149,7 +149,7 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librsjni
 
-# Custom CM packages
+# Custom Guun packages
 PRODUCT_PACKAGES += \
     AudioFX \
     CMSettingsProvider \
@@ -159,9 +159,8 @@ PRODUCT_PACKAGES += \
     LockClock \
     ThemeInterfacer \
     GoogleContacts \
+    Mixplorer \
     Dialer \
-    Home \
-		Suggestions \
     Recorder \
     WallpaperPicker \
     WeatherProvider
@@ -172,8 +171,8 @@ PRODUCT_PACKAGES += \
 
 # Dialer Permissions
 PRODUCT_COPY_FILES += \
-		vendor/psycho/prebuilt/etc/permissions/com.google.android.dialer.support.xml:system/etc/permissions/com.google.android.dialer.support.xml \
-		vendor/psycho/prebuilt/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
+		vendor/guun/prebuilt/etc/permissions/com.google.android.dialer.support.xml:system/etc/permissions/com.google.android.dialer.support.xml \
+		vendor/guun/prebuilt/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
 # Required keyboard packages
 PRODUCT_PACKAGES += \
@@ -283,21 +282,21 @@ PRODUCT_PACKAGES += \
 endif
 endif
 
-DEVICE_PACKAGE_OVERLAYS += vendor/psycho/overlay/common
+DEVICE_PACKAGE_OVERLAYS += vendor/guun/overlay/common
 
 PRODUCT_VERSION_MAJOR = 0
 PRODUCT_VERSION_MINOR = 35
 ifndef PSYCHO_BUILDTYPE
-    PSYCHO_BUILDTYPE := UNOFFICIAL
+    GUUN_BUILDTYPE := UNOFFICIAL
 endif
 
-ifeq ($(PSYCHO_OFFICIAL), true)
+ifeq ($(GUUN_OFFICIAL), true)
    CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
-   LIST = $(shell curl -s https://raw.githubusercontent.com/PsychoOS/android_vendor_cm/Psycho-N/psycho.official)
+   LIST = $(shell curl -s https://raw.githubusercontent.com/guunos/vendor_guun/guunaugat/guun.official)
    FOUND_DEVICE =  $(filter $(CURRENT_DEVICE), $(LIST))
     ifeq ($(FOUND_DEVICE),$(CURRENT_DEVICE))
       IS_OFFICIAL=true
-      PSYCHO_BUILDTYPE := OFFICIAL
+      GUUN_BUILDTYPE := OFFICIAL
 
       PRODUCT_PACKAGES += \
       PsychoOTA
@@ -305,7 +304,7 @@ ifeq ($(PSYCHO_OFFICIAL), true)
     endif
 
     ifneq ($(IS_OFFICIAL), true)
-       PSYCHO_BUILDTYPE := UNOFFICIAL
+       GUUN_BUILDTYPE := UNOFFICIAL
        $(error Device is not official "$(FOUND)")
     endif
 
@@ -315,24 +314,24 @@ ifeq ($(PSYCHO_OFFICIAL), true)
         persist.ota.manifest=https://raw.githubusercontent.com/PsychoOS/OTA/Psycho-N/$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3).xml
 endif
 
-PSYCHO_VERSION := Psycho-N-v$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(PSYCHO_BUILD)-$(PSYCHO_BUILDTYPE)
+GUUN_VERSION := Psycho-N-v$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(GUUN_BUILD)-$(PSYCHO_BUILDTYPE)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.psycho.version=$(PSYCHO_VERSION) \
+	ro.guun.version=$(PSYCHO_VERSION) \
 	ro.modversion=$(PSYCHO_VERSION) \
-	psycho.build.type=$(PSYCHO_BUILDTYPE) \
-	ro.psycho.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-	psycho.ota.version= $(shell date +%Y%m%d) \
+	guun.build.type=$(PSYCHO_BUILDTYPE) \
+	ro.guun.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
+	guun.ota.version= $(shell date +%Y%m%d) \
 	ro.substratum.verified=true \
 	ro.opa.eligible_device=true
 
 PSYCHO_DISPLAY_VERSION := $(PSYCHO_VERSION)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.psycho.display.version=$(PSYCHO_DISPLAY_VERSION)
+    ro.guun.display.version=$(PSYCHO_DISPLAY_VERSION)
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/psycho/config/partner_gms.mk
+-include vendor/guun/config/partner_gms.mk
 -include vendor/cyngn/product.mk
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)

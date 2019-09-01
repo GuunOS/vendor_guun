@@ -1,5 +1,5 @@
-# Inherit common Psycho stuff
-$(call inherit-product, vendor/psycho/config/common.mk)
+# Inherit common Guun stuff
+$(call inherit-product, vendor/guun/config/common.mk)
 
 PRODUCT_SIZE := full
 
