@@ -80,7 +80,7 @@ alias bib=breakfast
 function eat()
 {
     if [ "$OUT" ] ; then
-        ZIPPATH=`ls -tr "$OUT"/Psycho-*.zip | tail -1`
+        ZIPPATH=`ls -tr "$OUT"/Guun-*.zip | tail -1`
         if [ ! -f $ZIPPATH ] ; then
             echo "Nothing to eat"
             return 1

@@ -286,7 +286,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/guun/overlay/common
 
 PRODUCT_VERSION_MAJOR = 0
 PRODUCT_VERSION_MINOR = 35
-ifndef PSYCHO_BUILDTYPE
+ifndef GUUN_BUILDTYPE
     GUUN_BUILDTYPE := UNOFFICIAL
 endif
 
@@ -299,7 +299,7 @@ ifeq ($(GUUN_OFFICIAL), true)
       GUUN_BUILDTYPE := OFFICIAL
 
       PRODUCT_PACKAGES += \
-      PsychoOTA
+      #PsychoOTA
 
     endif
 
@@ -314,21 +314,21 @@ ifeq ($(GUUN_OFFICIAL), true)
         persist.ota.manifest=https://raw.githubusercontent.com/PsychoOS/OTA/Psycho-N/$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3).xml
 endif
 
-GUUN_VERSION := Psycho-N-v$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(GUUN_BUILD)-$(PSYCHO_BUILDTYPE)
+GUUN_VERSION := GuunOS-v$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(GUUN_BUILD)-GUUNICIAL
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.guun.version=$(PSYCHO_VERSION) \
-	ro.modversion=$(PSYCHO_VERSION) \
-	guun.build.type=$(PSYCHO_BUILDTYPE) \
+	ro.guun.version=$(GUUN_VERSION) \
+	ro.modversion=$(GUUN_VERSION) \
+	guun.build.type=$(GUUN_BUILDTYPE) \
 	ro.guun.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
 	guun.ota.version= $(shell date +%Y%m%d) \
 	ro.substratum.verified=true \
 	ro.opa.eligible_device=true
 
-PSYCHO_DISPLAY_VERSION := $(PSYCHO_VERSION)
+GUUN_DISPLAY_VERSION := $(GUUN_VERSION)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.guun.display.version=$(PSYCHO_DISPLAY_VERSION)
+    ro.guun.display.version=$(GUUN_DISPLAY_VERSION)
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/guun/config/partner_gms.mk
