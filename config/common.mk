@@ -109,7 +109,7 @@ TARGET_BOOTANIMATION_480P := $(shell \
 # Required CM packages
 
 PRODUCT_COPY_FILES += \
-    vendor/guun/prebuilt/common/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf \
+        vendor/guun/prebuilt/common/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf \
 		vendor/guun/prebuilt/common/fonts/DroidSansFallback.ttf:system/fonts/DroidSansFallback.ttf \
 		vendor/guun/prebuilt/common/fonts/Roboto-Black.ttf:system/fonts/Roboto-Black.ttf \
 		vendor/guun/prebuilt/common/fonts/Roboto-BlackItalic.ttf:system/fonts/Roboto-BlackItalic.ttf \
@@ -160,6 +160,8 @@ PRODUCT_PACKAGES += \
     ThemeInterfacer \
     GoogleContacts \
     Mixplorer \
+    Phonograph \
+    Vanced \
     Dialer \
     Recorder \
     WallpaperPicker \
