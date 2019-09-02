@@ -286,8 +286,8 @@ endif
 
 DEVICE_PACKAGE_OVERLAYS += vendor/guun/overlay/common
 
-PRODUCT_VERSION_MAJOR = 0
-PRODUCT_VERSION_MINOR = 35
+PRODUCT_VERSION_MAJOR = 1
+PRODUCT_VERSION_MINOR = 69
 ifndef GUUN_BUILDTYPE
     GUUN_BUILDTYPE := UNOFFICIAL
 endif
@@ -316,7 +316,9 @@ ifeq ($(GUUN_OFFICIAL), true)
         persist.ota.manifest=https://raw.githubusercontent.com/PsychoOS/OTA/Psycho-N/$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3).xml
 endif
 
-GUUN_VERSION := GuunOS-v$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(GUUN_BUILD)-GUUNICIAL
+GUUN_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
+
+GUUN_VERSION := GuunOS-v$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(GUUN_POSTFIX)-$(GUUN_BUILD)-GUUNICIAL
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.guun.version=$(GUUN_VERSION) \
