@@ -316,9 +316,9 @@ ifeq ($(GUUN_OFFICIAL), true)
         persist.ota.manifest=https://raw.githubusercontent.com/PsychoOS/OTA/Psycho-N/$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3).xml
 endif
 
-GUUN_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
+GUUN_POSTFIX := $(shell date +"%Y%m%d-%H%M")
 
-GUUN_VERSION := GuunOS-v$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(GUUN_POSTFIX)-$(GUUN_BUILD)-GUUNICIAL
+GUUN_VERSION := GuunOS-v$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(GUUN_POSTFIX)-$(GUUN_BUILD)GUUNICIAL
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.guun.version=$(GUUN_VERSION) \
